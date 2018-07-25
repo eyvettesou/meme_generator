@@ -16,7 +16,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch('/get_memes')
+    fetch('https://api.imgflip.com/get_memes')
       .then(response => response.json())
       .then(data => {
         this.list = data.data.memes;
