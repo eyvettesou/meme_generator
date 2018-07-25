@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
@@ -52,7 +51,9 @@ class App extends Component {
         }
 
         this.setState({
-          memes: [newObject]
+          memes: [newObject],
+          topComment: '',
+          bottomComment: ''
         })
       })
   }
@@ -89,25 +90,25 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to the Meme Generator</h1>
         </header>
+        <body className="body--container">
+          {this.backButton()}
 
-        {this.backButton()}
+          <div className="container">
+            {
+              this.state.memes.map( (meme) => {
+                return(
+                  <a onClick={ () => {this.setState({ memes: [meme] })} }>
+                    <img src={meme.url} alt={meme.name} className={(this.state.memes.length > 1) ? 'list--image' : 'individual--image'} />
+                  </a>
+                )
+              })
+            }
 
-        <div className="container">
-          {
-            this.state.memes.map( (meme) => {
-              return(
-                <a onClick={ () => {this.setState({ memes: [meme] })} }>
-                  <img src={meme.url} alt={meme.name} className={(this.state.memes.length > 1) ? 'list--image' : 'individual--image'} />
-                </a>
-              )
-            })
-          }
-
-          {this.inputs()}
-        </div>
+            {this.inputs()}
+          </div>
+        </body>
       </div>
     );
   }
