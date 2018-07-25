@@ -1,0 +1,43 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+a {
+  cursor: pointer;
+}
+
+input {
+  font-size: 16px;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.list--image {
+  height: 300px;
+  object-fit: cover;
+  margin: 10px 20px;
+  width: 300px;
+}
+
+.individual--image {
+  height: 400px;
+  margin: 10px 20px;
+  width: auto;
+}
+
+.individual-inputs--container {
+  margin: 10px 20px;
+  text-align: left;
+}
+
+.individual-inputs--comments {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+}
